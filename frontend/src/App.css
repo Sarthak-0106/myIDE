@@ -1,0 +1,74 @@
+*{
+  margin: 0;
+  padding: 0;
+}
+
+body{
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  background-color: #0c0c0c;
+  color: #fff; 
+  overflow-x: hidden;
+}
+
+html{
+  overflow-x: hidden;
+}
+
+.inputbox{
+  width: 100%;
+  background-color: #141414;
+  border-radius: 5px;
+  display: flex;
+  align-items: center;
+  margin-bottom: 10px;
+}
+
+.inputbox input{
+  flex: 1;
+  padding: 10px;
+  background-color: transparent;
+  border: none;
+  outline: none;
+  color: #fff;
+  font-size: 16px;
+}
+
+.btnblue{
+  background-color: #0077cc;
+  color: #fff;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 16px;
+}
+
+.btnblue:hover{
+  background-color: #005faa;
+}
+
+.grid{
+  display: flex !important;
+  flex-wrap: wrap !important;
+  gap: 10px;
+}
+
+.lightmode{
+  background-color: #f0f0f0 !important;
+  color: #000 !important;
+}
+
+.lightmode .EditorNavbar{
+  background-color: #fff !important;
+}
+
+.lightmode .tabs{
+  background-color: #f0f0f0 !important;
+}
+
+.lightmode .tabs div{
+  background-color: #f0f0f0 !important;
+  color: #000 !important;
+}
