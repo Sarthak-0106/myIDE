@@ -17,7 +17,6 @@ const App = () => {
           <Route path='/login' element={<Login />} />
           <Route path='/editor/:projectID' element={<CodeEditor />} />
           <Route path="*" element={<NoPage />} />
-          
       </Routes>
       </BrowserRouter>
     </>
