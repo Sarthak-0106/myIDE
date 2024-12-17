@@ -9,7 +9,7 @@ const EditorNavbar = () => {
                     <img className='w-[150px] cursor-pointer' src="" alt="" />
                 </div>
                 <p>File / <span className="text-[gray]">My IDE project</span></p>
-                <i className="p-[5px] bg-black rounded-[5px] cursor-pointer text-[20px]"><LuDownload /></i>
+                <i className="p-[5px] btn bg-black rounded-[5px] cursor-pointer text-[20px]"><LuDownload /></i>
             </div>
         </>
     )

@@ -1,8 +1,9 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import EditorNavbar from "../components/EditorNavbar";
 import Editor from '@monaco-editor/react';
 import { MdLightMode } from 'react-icons/md';
 import { AiOutlineExpandAlt } from "react-icons/ai";
+
 
 const CodeEditor = () => {
 
@@ -16,15 +17,32 @@ const CodeEditor = () => {
 
     const changeTheme = () => {
         if (isLightMode) {
-            document.querySelector(".editor-navbar").style.background = "#141414";
+            document.querySelector(".EditorNavbar").style.background = "#141414";
             document.body.classList.remove('lightmode');
             setIsLightMode(false);
         } else {
-            document.querySelector(".editor-navbar").style.background = "#fff";
+            document.querySelector(".EditorNavbar").style.background = "#fff";
             document.body.classList.add('lightmode');
             setIsLightMode(true);
         }
     }
+
+    const run = () => {
+        const html = htmlCode;
+        const css = `<style>${cssCode}</style>`;
+        const js = `<script>${jsCode}</script>`;
+        const iframe = document.getElementById("iframe");
+
+        if (iframe) {
+            iframe.srcdoc = html + css + js;
+        }
+    };
+
+    useEffect(() => {
+        setTimeout(() => {
+          run();
+        }, 200);
+      }, [htmlCode, cssCode, jsCode]);
 
     return (
         <>
@@ -78,11 +96,17 @@ const CodeEditor = () => {
                         />
                     )}
                 </div>
+                {!isExpanded && (
+                    <iframe
+                        id="iframe"
+                        className="w-[50%] min-h-[82vh] bg-[#fff] text-black"
+                        title="output"
+                    />
+                )}
             </div>
 
-            <iframe id="output" className={`w-[${isExpanded ? "0%" : "50%"}] ${isExpanded ? 'hidden' : ""} min-h-[82vh] bg-[#fff] text-black`}></iframe>
         </>
-    )
+    );
 };
 
 export default CodeEditor;
